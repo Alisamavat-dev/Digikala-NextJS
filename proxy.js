@@ -1,7 +1,7 @@
 import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 
-export default async function middleware(req) {
+export default async function proxy(req) {
   const cookie = await cookies();
   const tokenCookie = cookie.get("token");
   const token = tokenCookie?.value;
