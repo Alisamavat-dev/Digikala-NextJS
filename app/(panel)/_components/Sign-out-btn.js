@@ -40,7 +40,7 @@ export default function SignOutBtn() {
         disabled
         className="bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200 inline-flex items-center gap-2"
       >
-        Signing out...
+        درحال خروج...
       </button>
     );
   }
@@ -50,7 +50,7 @@ export default function SignOutBtn() {
       onClick={() => mutate()}
       className="bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 shadow-sm hover:shadow-md"
     >
-      Sign out
+      خروج
     </button>
   );
 }

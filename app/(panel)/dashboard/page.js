@@ -1,10 +1,10 @@
-import SignOut from "@/app/(panel)/_components/Sign-out-btn"
+import Header from "@/app/(panel)/_components/header";
 
 export default function sign_in() {
   return (
     <div className="bg-[#FFFF]">
       <main className="">
-        <SignOut/>
+        <Header />
       </main>
     </div>
   );

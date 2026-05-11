@@ -45,7 +45,7 @@ export default function SignUpForm() {
 
   if (mutation.isPending) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+      <div className="min-h-screen flex items-center justify-center">
         <button
           disabled
           className="w-96 bg-red-500 text-white p-3 rounded-lg cursor-not-allowed"
@@ -75,9 +75,10 @@ export default function SignUpForm() {
         </div>
 
         {mutation.isError && (
-          <div className="bg-red-50 border border-red-200 rounded-lg p-3 mb-4 text-center">
+          <div className="border border-red-200 rounded-lg p-3 mb-4 text-center">
             <p className="text-red-600 text-sm">
-              {mutation.error?.message || "خطا در ثبت‌نام. لطفاً دوباره تلاش کنید."}
+              {mutation.error?.message ||
+                "خطا در ثبت‌نام. لطفاً دوباره تلاش کنید."}
             </p>
           </div>
         )}
