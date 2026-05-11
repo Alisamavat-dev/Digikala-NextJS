@@ -22,6 +22,11 @@ export default function SignInForm() {
         }),
       });
       const js = await response.json();
+
+      if (!response.ok) {
+        throw new Error(js.message || "ایمیل یا رمز عبور اشتباه است");
+      }
+
       return js;
     },
   });
@@ -73,14 +78,14 @@ export default function SignInForm() {
               type="text"
               name="email"
               id="email"
-              className="border text-gray-700 border-gray-300 rounded-lg pt-5 w-full focus:outline-none focus:ring-2  focus:border-transparent transition hover:border-[#000000] duration-200"
+              className="border text-gray-700 border-gray-300 rounded-lg p-2 pt-3 w-full focus:outline-none focus:ring-2 focus:border-transparent transition hover:border-[#000000] duration-200"
               required
               dir="ltr"
               placeholder=" "
             />
             <label
               htmlFor="email"
-              className="absolute right-3 top-3 text-gray-500 text-sm transition-all pointer-events-none peer-focus:top-1 peer-focus:text-xs peer-focus:text-[#000000]"
+              className="absolute right-3 top-3 text-gray-500 text-sm transition-all pointer-events-none"
             >
               ایمیل خود را وارد کنید
             </label>
@@ -88,20 +93,29 @@ export default function SignInForm() {
 
           <div className="relative">
             <input
+              dir="ltr"
               type="password"
               name="password"
               id="password"
-              className="border text-gray-700 border-gray-300 rounded-lg pt-5 w-full focus:outline-none focus:ring-2  focus:border-transparent transition hover:border-[#000000] duration-200"
+              className="border text-gray-700 border-gray-300 rounded-lg p-2 pt-3 w-full focus:outline-none focus:ring-2 focus:border-transparent transition hover:border-[#000000] duration-200"
               required
               placeholder=" "
             />
             <label
               htmlFor="password"
-              className="absolute right-3 top-3 text-gray-500 text-sm transition-all pointer-events-none peer-focus:top-1 peer-focus:text-xs "
+              className="absolute right-3 top-3 text-gray-500 text-sm transition-all pointer-events-none"
             >
               رمز عبور
             </label>
           </div>
+
+          {mutation.isError && (
+            <div className="bg-red-50 border border-red-200 rounded-lg p-3 text-center">
+              <p className="text-red-600 text-sm">
+                {mutation.error?.message || "ایمیل یا رمز عبور اشتباه است"}
+              </p>
+            </div>
+          )}
 
           <button
             type="submit"
@@ -110,7 +124,18 @@ export default function SignInForm() {
             ورود به دیجی‌کالا
           </button>
         </form>
-
+        <div className="text-center mt-6">
+          <p className="text-sm text-gray-500">
+            اکانت ندارید؟{" "}
+            <button
+              type="button"
+              onClick={() => router.push("/sign-in")}
+              className="text-[#EF4056] hover:underline font-medium"
+            >
+              اکانت بسازید
+            </button>
+          </p>
+        </div>
         <p className="text-xs text-gray-400 text-center mt-6 hover:text-gray-600 transition-colors duration-200">
           ورود شما به معنای پذیرش شرایط دیجی‌کالا و قوانین حریم خصوصی است
         </p>
