@@ -43,7 +43,7 @@ export default function SignInForm() {
 
   if (mutation.isPending) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+      <div className="min-h-screen flex items-center justify-center">
         <button
           disabled
           className="w-96 bg-red-500 text-white p-3 rounded-lg cursor-not-allowed"
