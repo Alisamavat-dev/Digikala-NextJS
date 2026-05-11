@@ -1,0 +1,48 @@
+/* app/globals.css */
+@import "tailwindcss";
+
+@font-face {
+  font-family: "IRANYekan";
+  src: url("/public/Font/BYekan+.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IRANYekan";
+  src: url("/fonts/IRANYekan-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IRANYekan";
+  src: url("/fonts/IRANYekan-Bold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  font-family: "IRANYekan", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+body {
+  font-family: "IRANYekan", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+input:not(:placeholder-shown) + label,
+input:focus + label {
+  top: 0.25rem;
+  font-size: 0.7rem;
+}
+
+input:not(:placeholder-shown) + label {
+  color: #6b7280;
+}
+
+input:focus + label {
+  color: #000000;
+}
