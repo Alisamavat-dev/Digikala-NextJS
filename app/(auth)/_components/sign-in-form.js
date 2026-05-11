@@ -129,7 +129,7 @@ export default function SignInForm() {
             اکانت ندارید؟{" "}
             <button
               type="button"
-              onClick={() => router.push("/sign-in")}
+              onClick={() => router.push("/sign-up")}
               className="text-[#EF4056] hover:underline font-medium"
             >
               اکانت بسازید
