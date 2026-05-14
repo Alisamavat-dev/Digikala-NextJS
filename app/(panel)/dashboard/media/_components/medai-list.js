@@ -3,7 +3,7 @@
 import { useQuery } from "@tanstack/react-query";
 import DeleteMediaBtn from "./delete-media-btn";
 
-export default function MediaGallery() {
+export default function MediaList() {
   const {
     data: media = [],
     isLoading,
