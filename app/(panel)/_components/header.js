@@ -11,7 +11,7 @@ import {
   Bars3Icon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
-import SignOut from "@/app/(panel)/_components/Sign-out-btn";
+import SignOut from "@/app/(auth)/_components/Sign-out-btn";
 
 const navigation = [
   {
