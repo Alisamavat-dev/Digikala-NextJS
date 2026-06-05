@@ -32,7 +32,7 @@ export default function DeleteMediaBtn({ mediaId, onDelete }) {
       onClick={handleDelete}
       disabled={isDeleting}
       type="button"
-      className="absolute top-2 right-2 p-2 bg-red-500 text-white rounded-full opacity-0 group-hover:opacity-100 transition-all hover:bg-red-600 disabled:opacity-50"
+      className="absolute top-2 right-2 p-2 bg-[#ED1944] text-white rounded-full opacity-0 group-hover:opacity-100 transition-all hover:bg-red-600 disabled:opacity-50"
     >
       {isDeleting ? (
         <Loader2 className="w-4 h-4 animate-spin" />

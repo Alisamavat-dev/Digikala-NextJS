@@ -16,7 +16,7 @@ export default function CategoryList() {
     },
   });
   if (isPending) {
-    return <LoaderCircle className="m-[0_auto] "/>;
+    return <LoaderCircle className="m-[0_auto] " />;
   }
   return (
     <div className="w-[950px] shadow-sm  rounded-[7px] overflow-hidden ">
@@ -37,29 +37,30 @@ export default function CategoryList() {
             className=" flex justify-between items-center px-[30px] w-[950px] border-b-1 border-[#c0c0c05f]  "
           >
             <div className="flex text-[#070707] flex justify-center  w-[150px] text-[12px] mr-[10px]">
-              
               <p>{category._id}</p>
             </div>
 
-            <Image src={category.image} alt={category.name} width={60} height={60} />
+            <Image
+              src={category.image}
+              alt={category.name}
+              width={60}
+              height={60}
+            />
             <div className="flex text-[#070707]  text-[12px]  w-[120px] mr-[15px]  justify-center">
-             
               <p>{category.en_name}</p>
             </div>
             <div className="flex text-[#070707] gap-3 text-[12px]  w-[100px] ml-[22px]  flex justify-center">
-             
               <p>{category.name}</p>
             </div>
 
             <div className=" w-[110px] flex  gap-[10px] pr-[5px] ">
-                 <UpdateCategoryButton
+              <UpdateCategoryButton
                 id={category._id}
                 en_name={category.en_name}
-                name={category.name} 
+                name={category.name}
                 image={category.image}
               />
               <DeleteCategory id={category._id} />
-             
             </div>
           </div>
         );

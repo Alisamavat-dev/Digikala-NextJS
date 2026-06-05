@@ -1,19 +1,20 @@
 "use client";
 
-import Button from "@/Ui/button";
+import Button from "@/ui/button";
 import { Pencil } from "lucide-react";
 import { useState } from "react";
 import UpdateCategory from "./update_category";
 
-export default function UpdateCategoryButton({ id, name, image ,en_name }) {
-  
+export default function UpdateCategoryButton({ id, name, image, en_name }) {
   const [open, setOpen] = useState(false);
 
   return (
     <div>
       <Button
         click={() => setOpen(true)}
-        className={"w-fit h-fit p-[4px]  bg-[#ffffff] border-1 border-[#000000] hover:bg-[#dbdbdb]"}
+        className={
+          "w-fit h-fit p-[4px]  bg-[#ffffff] border-1 border-[#000000] hover:bg-[#dbdbdb]"
+        }
       >
         <Pencil size={15} color="#000000" />
       </Button>
@@ -38,8 +39,8 @@ export default function UpdateCategoryButton({ id, name, image ,en_name }) {
             <UpdateCategory
               id={id}
               currentEn_Name={en_name}
-              currentName={name} 
-              currentImage={image} 
+              currentName={name}
+              currentImage={image}
             />
           </div>
         </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import Button from "@/Ui/button";
+import Button from "@/ui/button";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import toast, { Toaster } from "react-hot-toast";
 import { z } from "zod";
@@ -14,7 +14,11 @@ const createCategorySchema = z.object({
       message: "نام دسته بندی فقط می‌تواند فارسی باشد",
     })
     .trim(),
-     en_name: z.string().min(3, "نام  لاتین دسته بندی حداقل باید 3 حرف باشد").max(10, "نام لاتین دسته بندی حداکثر 10 حرف باشد").regex(/^[a-zA-Z\s]+$/, {
+  en_name: z
+    .string()
+    .min(3, "نام  لاتین دسته بندی حداقل باید 3 حرف باشد")
+    .max(10, "نام لاتین دسته بندی حداکثر 10 حرف باشد")
+    .regex(/^[a-zA-Z\s]+$/, {
       message: "نام لاتین دسته بندی نمی‌تواند فارسی باشد",
     }),
 
@@ -31,10 +35,10 @@ export default function CreateCategory() {
     mutationKey: ["create-category"],
     mutationFn: async (formData) => {
       const name = formData.get("name");
-      const en_name=formData.get("en_name");
+      const en_name = formData.get("en_name");
       const image = formData.get("image");
 
-      const result = createCategorySchema.safeParse({ name, image ,en_name });
+      const result = createCategorySchema.safeParse({ name, image, en_name });
 
       if (!result.success) {
         const flattened = result.error.flatten();
@@ -56,7 +60,7 @@ export default function CreateCategory() {
         credentials: "include",
         body: JSON.stringify({
           name: formData.get("name"),
-          en_name:formData.get("en_name"),
+          en_name: formData.get("en_name"),
           image: formData.get("image"),
         }),
       });

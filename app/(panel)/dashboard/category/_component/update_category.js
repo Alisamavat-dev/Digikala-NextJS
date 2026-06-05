@@ -1,37 +1,51 @@
-
-
-
 "use client";
 
-import Button from "@/Ui/button";
+import Button from "@/ui/button";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { Ellipsis } from "lucide-react";
 import toast, { Toaster } from "react-hot-toast";
 import { z } from "zod";
 
 const updateCategorySchema = z.object({
-  name: z.string().min(3, "نام دسته بندی حداقل باید 3 حرف باشد").max(10, "نام دسته بندی حداکثر 10 حرف باشد").regex(/^[آ-ی\s]+$/, "نام دسته بندی فقط فارسی باشد").optional().or(z.literal('')),
-  en_name: z.string().min(3, "نام  لاتین دسته بندی حداقل باید 3 حرف باشد").max(10, "نام لاتین دسته بندی حداکثر 10 حرف باشد").regex(/^[a-zA-Z\s]+$/, "نام لاتین دسته بندی نباید فارسی  باشد").optional().or(z.literal('')),
-  image: z.string().url("آدرس عکس معتبر نیست").optional().or(z.literal('')),
-})
+  name: z
+    .string()
+    .min(3, "نام دسته بندی حداقل باید 3 حرف باشد")
+    .max(10, "نام دسته بندی حداکثر 10 حرف باشد")
+    .regex(/^[آ-ی\s]+$/, "نام دسته بندی فقط فارسی باشد")
+    .optional()
+    .or(z.literal("")),
+  en_name: z
+    .string()
+    .min(3, "نام  لاتین دسته بندی حداقل باید 3 حرف باشد")
+    .max(10, "نام لاتین دسته بندی حداکثر 10 حرف باشد")
+    .regex(/^[a-zA-Z\s]+$/, "نام لاتین دسته بندی نباید فارسی  باشد")
+    .optional()
+    .or(z.literal("")),
+  image: z.string().url("آدرس عکس معتبر نیست").optional().or(z.literal("")),
+});
 
-export default function UpdateCategory({ id,currentEn_Name, currentName, currentImage }) {
+export default function UpdateCategory({
+  id,
+  currentEn_Name,
+  currentName,
+  currentImage,
+}) {
   const queryclient = useQueryClient();
 
-  const { mutate, isPending  } = useMutation({
+  const { mutate, isPending } = useMutation({
     mutationKey: ["update-category"],
     mutationFn: async (formData) => {
       const name = formData.get("name");
       const en_name = formData.get("en_name");
       const image = formData.get("image");
 
-      const result = updateCategorySchema.safeParse({ 
-        name: name?.toString().trim() || '',
-        en_name: en_name?.toString().trim() || '', 
-        image: image?.toString().trim() || '' 
+      const result = updateCategorySchema.safeParse({
+        name: name?.toString().trim() || "",
+        en_name: en_name?.toString().trim() || "",
+        image: image?.toString().trim() || "",
       });
-      
-       if (!result.success) {
+
+      if (!result.success) {
         const flattened = result.error.flatten();
         const allErrors = [
           ...(flattened.fieldErrors.name || []),
@@ -41,7 +55,7 @@ export default function UpdateCategory({ id,currentEn_Name, currentName, current
 
         throw allErrors;
       }
-if (!name && !en_name && !image ) {
+      if (!name && !en_name && !image) {
         throw new Error("حداقل یکی از فیلدها باید پر شود!");
       }
       const response = await fetch(`http://localhost:4000/api/category/${id}`, {
@@ -108,7 +122,7 @@ if (!name && !en_name && !image ) {
               نام دسته بندی
             </label>
           </div>
-            <div className="fl-field  p-[2px] w-[280px]">
+          <div className="fl-field  p-[2px] w-[280px]">
             <input
               className="fl-input w-[270px] placeholder:text-[9px] placeholder:text-[#8a8a8a81]  h-[40px] rounded-lg"
               type="text"
