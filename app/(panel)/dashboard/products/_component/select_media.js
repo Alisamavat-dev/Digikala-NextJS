@@ -2,7 +2,7 @@
 
 "use client";
 
-import Button from "@/Ui/button";
+import Button from "@/ui/button";
 import { useQuery } from "@tanstack/react-query";
 import { CheckCheck, Ellipsis, X } from "lucide-react";
 import { useState } from "react";

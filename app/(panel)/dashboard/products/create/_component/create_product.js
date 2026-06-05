@@ -2,7 +2,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import SelectCategory from "../../_component/select_category";
 import SelectBrand from "../../_component/select_brand";
-import Button from "@/Ui/button";
+import Button from "@/ui/button";
 import SelectMedia from "../../_component/select_media";
 import toast, { Toaster } from "react-hot-toast";
 import { z } from "zod";

@@ -1,4 +1,4 @@
-import Button from "@/Ui/button";
+import Button from "@/ui/button";
 import Link from "next/link";
 import { Plus } from "lucide-react";
 import ProductList from "./_component/product_list";

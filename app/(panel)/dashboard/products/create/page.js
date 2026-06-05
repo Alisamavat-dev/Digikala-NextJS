@@ -1,7 +1,7 @@
 
 import Link from "next/link";
 import CreateProduct from "./_component/create_product";
-import Button from "@/Ui/button";
+import Button from "@/ui/button";
 import { ChevronLeft, Plus } from "lucide-react";
 
 export default function Create (){
