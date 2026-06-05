@@ -26,12 +26,12 @@ const navigation = [
   },
   {
     name: "دسته‌بندی‌ها",
-    href: "/dashboard/categories",
+    href: "/dashboard/category",
     icon: FolderIcon,
   },
   {
     name: "برندها",
-    href: "/dashboard/brands",
+    href: "/dashboard/brand",
     icon: TagIcon,
   },
   {

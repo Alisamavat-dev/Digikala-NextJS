@@ -1,5 +1,5 @@
 import Header from "@/app/(panel)/_components/header";
-import InventoryList from "./_components/inventory-list";
+import InventoryList from "../_components/inventory-list";
 
 export default function sign_in() {
   return (
