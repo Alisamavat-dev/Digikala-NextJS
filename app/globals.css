@@ -1,0 +1,169 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "IRANYekan";
+  src: url("/Font/BYekan+.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IRANYekan";
+  src: url("/Font/BYekan+ Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  font-family: "IRANYekan", system-ui, "Segoe UI", Tahoma, sans-serif;
+}
+
+body {
+  font-family: "IRANYekan", system-ui, "Segoe UI", Tahoma, sans-serif;
+}
+
+input:not(:placeholder-shown) + label,
+input:focus + label {
+  top: 0.25rem;
+  font-size: 0.7rem;
+}
+
+input:not(:placeholder-shown) + label {
+  color: #6b7280;
+}
+
+input:focus + label {
+  color: #000000;
+}
+
+.nav-item {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+.nav-item::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 2px;
+  background-color: #ed1944;
+  transition: width 0.3s ease-in-out;
+}
+
+.nav-item:hover::after {
+  width: 100%;
+  left: 0;
+  right: auto;
+}
+
+.nav-item-center::after {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nav-item-center:hover::after {
+  width: 100%;
+}
+
+.fl-field {
+  position: relative;
+}
+
+.fl-input {
+  border: 1px solid #e6e6e6;
+  padding: 18px 16px 10px;
+  font-size: 14px;
+  outline: none;
+  background: #fff;
+}
+
+.fl-label {
+  position: absolute;
+  font-size: 10px;
+  color: #8a8a8a;
+  pointer-events: none;
+  transition: 180ms ease;
+  transform-origin: left top;
+  background: transparent;
+}
+
+.fl-input:focus + .fl-label,
+.fl-input:not(:placeholder-shown) + .fl-label {
+  top: -5px !important;
+  font-size: 9px !important;
+  background: #fff;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #2a2a2a;
+}
+
+.fl-input:focus {
+  border-color: #000000;
+  font-size: x-small;
+  padding-bottom: 15px !important;
+}
+
+.fl-input:focus::placeholder {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.products-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.products-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 16px;
+  gap: 0;
+}
+
+.custom-navigation .swiper-button-next,
+.custom-navigation .swiper-button-prev {
+  color: #2c2c2c;
+  width: 30px;
+  height: 30px;
+  margin: 5px;
+}
+
+.custom-navigation .swiper-button-next:hover,
+.custom-navigation .swiper-button-prev:hover {
+  color: #000000;
+}
+
+.custom-navigation .swiper-button-next::after,
+.custom-navigation .swiper-button-prev::after {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.product-slider .swiper-pagination {
+  bottom: -4px !important;
+}
+
+.product-slider .swiper-pagination-bullet {
+  transition: all 0.3s ease;
+  background: #d1d5db;
+  opacity: 1;
+  border-radius: 2px;
+  width: 7px;
+  height: 7px;
+  margin: 0 2px !important;
+}
+
+.product-slider .swiper-pagination-bullet-active {
+  background: #b31a39;
+  width: 12px;
+  border-radius: 2px;
+}
